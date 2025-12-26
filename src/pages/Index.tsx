@@ -3,6 +3,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CatalogFilters } from '@/components/CatalogFilters';
 import { CatalogGrid } from '@/components/CatalogGrid';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
+import logo from '@/assets/logo.png';
 
 const Index = () => {
   const breadcrumbItems = [
@@ -41,14 +42,9 @@ const Index = () => {
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold text-lg">К</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold">КерамоГранит</h3>
-                    <p className="text-xs text-gray-400">Оптовые поставки</p>
-                  </div>
+                <div className="mb-4">
+                  <img src={logo} alt="EKSIMA" className="h-10 w-auto mb-2" />
+                  <p className="text-xs text-gray-400">Оптовые поставки</p>
                 </div>
                 <p className="text-sm text-gray-400">
                   Ведущий поставщик керамогранита для B2B клиентов с 2010 года
@@ -86,7 +82,7 @@ const Index = () => {
             </div>
 
             <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-gray-400 text-center">
-              © 2024 КерамоГранит. Все права защищены.
+              © {new Date().getFullYear()} Эксима. Все права защищены.
             </div>
           </div>
         </footer>
