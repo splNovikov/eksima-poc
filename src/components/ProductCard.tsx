@@ -43,14 +43,14 @@ export function ProductCard({ product, view = 'grid' }: ProductCardProps) {
       return (
         <span className="badge-stock badge-in-stock flex items-center gap-1">
           <Package className="w-3 h-3" />
-          {product.stock} {product.unit}
+          В наличии: {product.stock} {product.unit}
         </span>
       );
     } else if (product.stock > 0) {
       return (
         <span className="badge-stock badge-low-stock flex items-center gap-1">
           <Package className="w-3 h-3" />
-          {product.stock} {product.unit}
+          В наличии: {product.stock} {product.unit}
         </span>
       );
     }
@@ -90,7 +90,7 @@ export function ProductCard({ product, view = 'grid' }: ProductCardProps) {
             </h3>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <span>Размер: <span className="text-foreground">{product.size}</span></span>
-              <span>Поверхность: <span className="text-foreground">{product.surface}</span></span>
+              <span className="truncate max-w-[180px]">Поверхность: <span className="text-foreground">{product.surface}</span></span>
             </div>
           </div>
 
@@ -187,9 +187,9 @@ export function ProductCard({ product, view = 'grid' }: ProductCardProps) {
             <span>Размер:</span>
             <span className="text-foreground">{product.size}</span>
           </div>
-          <div className="flex justify-between">
-            <span>Поверхность:</span>
-            <span className="text-foreground">{product.surface}</span>
+          <div className="flex justify-between gap-2">
+            <span className="shrink-0">Поверхность:</span>
+            <span className="text-foreground truncate">{product.surface}</span>
           </div>
         </div>
 
