@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.node.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "noEmit": true,
+    "paths": {
+      "~shared/*": ["../src/shared/*"]
+    }
+  },
+  "include": ["./**/*.ts"]
+}
+
+

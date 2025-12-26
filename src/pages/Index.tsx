@@ -1,11 +1,29 @@
+import { useEffect, useRef } from 'react';
 import { Header } from '@/components/Header';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CatalogFilters } from '@/components/CatalogFilters';
 import { CatalogGrid } from '@/components/CatalogGrid';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
+import { useTelegramNotification } from '@/lib/telegram/use-telegram-notification';
 import logo from '@/assets/logo.png';
 
 const Index = () => {
+  const { notify } = useTelegramNotification({ silent: true });
+  const hasNotified = useRef(false);
+
+  useEffect(() => {
+    if (hasNotified.current) {
+      return;
+    }
+
+    hasNotified.current = true;
+    const currentPath = window.location.pathname || '/';
+    
+    notify(currentPath).catch((error) => {
+      console.error('Failed to send visit notification:', error);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const breadcrumbItems = [
     { label: 'Каталог', href: '/catalog' },
     { label: 'Керамогранит', href: '/catalog/keramogranit' },
